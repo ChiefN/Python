@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./snake.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>PYTHON</title>
+</head>
+<body>
+    <div class="snake-container">
+        <section class="snake-introduction">
+            <a href="../index.html"><img class="exit-btn" src="./Media/exitBtn.png" alt="ExitBtn"></a>
+            <h1>PYTHON</h1>
+        </section>
+        <main class="snake-main">
+            <div class="snake-grid">
+                <section class="game-over-section">
+                    <section class="current-score-section"><h2>Your score:</h2><p></p></section>
+                    <section class="high-score-section">
+                    </section>
+                </section>
+            </div>
+            <aside class="snake-aside">
+                <span class="tsbutton" onclick="showTouchButtons()" data-showingTouch="false">Get touchscreen buttons</span>
+                <form class="game-mode-form">
+                    <div>
+                    <input type="radio" name="choice" value="OldSchool" id="choice-regular" checked="checked" onclick="changeGameMode()"> 
+                    <label for="choice-regular">OldSchool</label>
+                    </div>
+                    <div>
+                    <input type="radio" name="choice" value="NoBorders" id="choice-no-borders" onclick="changeGameMode()">
+                    <label for="choice-no-borders">NoBorders</label>
+                    </div>
+                    <div>
+                    <input type="radio" name="choice" value="HighSpeed" id="choice-high-speed" onclick="changeGameMode()">
+                    <label for="choice-high-speed">HighSpeed</label>
+                    </div>
+                    <div>
+                    <input type="radio" name="choice" value="ChooseWithCausion" id="choice-choose-with-causion" onclick="changeGameMode()">
+                    <label for="choice-choose-with-causion">ChooseWithCausion</label>
+                    </div>
+                </form>
+                <div class="game-mode-desc">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="snake-score">Score: <span>0</span></div>
+                <button class="start-btn">Start/Restart</button>
+                <div class="touchArrowKeys">
+                    <span class="phone-score">0</span>
+                    <div class="arrowKey W" data-btn="W" onclick="touchControls(this)"><div class="middleBtn">W</div><div class="upT"></div><div class="leftT"></div><div class="downT"></div><div class="rightT"></div></div>
+                    <div class="arrowKey A" data-btn="A" onclick="touchControls(this)"><div class="middleBtn">A</div><div class="upT"></div><div class="leftT"></div><div class="downT"></div><div class="rightT"></div></div>
+                    <div class="arrowKey S" data-btn="S" onclick="touchControls(this)"><div class="middleBtn">S</div><div class="upT"></div><div class="leftT"></div><div class="downT"></div><div class="rightT"></div></div>
+                    <div class="arrowKey D" data-btn="D" onclick="touchControls(this)"><div class="middleBtn">D</div><div class="upT"></div><div class="leftT"></div><div class="downT"></div><div class="rightT"></div></div>
+                </div>
+            </aside>
+        </main>
+    </div>    
+    <script src="./snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+.snake-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./Media/snakeBackground.jpg);
+    background-size: contain;
+    row-gap: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.snake-introduction{
+    height: 10%;
+    max-height: 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px black solid;
+}
+
+.snake-introduction .exit-btn, .snake-introduction a{
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    left: 5px;
+    cursor: crosshair;
+}
+
+.snake-introduction .settings-btn{
+    position: absolute;
+    z-index: 999;
+    height: 90%;
+    right: 10px;
+    cursor: crosshair;
+    display: none;
+}
+
+.snake-introduction .exit-btn:hover{
+    transform: scale(1.1);
+    background-color: rgba(222,191,147,0.8);
+}
+
+.snake-introduction h1{
+    z-index: 999;
+    font-size: 80px;
+}
+
+.stripe {
+    width: 12px;
+    height: 200px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -50px;
+    background: rgba(222,191,147,255);
+    border: 2px solid rgba(243,57,8,255);
+  }
+
+  .stripeTwo{
+    width: 12px;
+    height: 200px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -50px;
+    background: rgba(243,57,8,255);
+    border: 2px solid rgba(222,191,147,255);
+  }
+
+.snake-main{
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+}
+
+
+.snake-grid{
+    border: 3px solid black;
+    max-height: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    box-shadow: inset 14px 20px 41px 15px rgba(0,0,0,0.75);
+    background: white;
+    position: relative;
+    background: url(./Media/snakeGridBackground.jpg);
+    background-size: contain;
+}
+
+.game-over-section{
+    position: absolute;
+    background: url(./Media/snakeGameOver.png), rgba(255, 255, 255, 0.9);
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    display: none;
+}
+
+.game-over-section > * {
+    opacity: 0.8;
+    background: linear-gradient(90deg, rgba(243,57,8,255) 40%, rgba(222,191,147,255) 60%);
+}
+
+.current-score-section{
+    width: 90%;
+    min-height: 40px;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 0.5rem;
+    z-index: 99;
+}
+
+.current-score-section h2{
+    font-size: 32px;
+}
+
+.current-score-section p{
+    font-size: 28px;
+}
+
+.high-score-section{
+    width: 90%;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.high-score-section ul{
+    list-style-position: inside;
+}
+
+.snake-aside{
+    height: 100%;
+    width: 30%;
+    min-width: 25%;
+    display: grid;
+    grid-template-rows: 1fr auto auto auto auto;
+    align-content: flex-end;
+    padding: 1rem;
+}
+
+.snake-aside form div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.snake-aside form div:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.snake-aside form div input{
+    margin-right: 0.5rem;
+    cursor: crosshair;
+}
+
+.snake-aside form div label{
+    margin-right: 0.5rem;
+    cursor: crosshair;
+    width: 100%;
+    text-align: start;
+    font-size: larger;
+}
+
+
+.snake-aside > * {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.snake-aside > span {
+    margin-bottom: auto;
+    margin-top: 0px;
+    font-size: large;
+    font-weight: bold;
+    background: rgba(243,57,8,255);
+    border: 3px solid rgba(222,191,147,255);
+    cursor: crosshair;
+    padding: 0px;
+}
+
+.snake-aside > span:hover{
+    animation: btnBounce 500ms infinite alternate;
+}
+
+.snake-aside > *{
+    background: rgba(222,191,147,255);
+    border: 3px solid rgba(243,57,8,255);
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.snake-score{
+    font-size: xx-large;
+}
+
+.snake-score span{
+    font-weight: bolder;
+}
+
+.snake-aside button{
+    font-size: larger;
+    font-weight: bold;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(243,57,8,255);
+    border: 3px solid rgba(222,191,147,255);
+    cursor: crosshair;
+}
+
+.snake-aside button:hover{
+    animation: btnBounce 500ms infinite alternate;
+}
+
+.snake-aside button:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.snake-start-btn{
+    font-size: larger;
+    font-weight: bold;
+    width: 80%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(222,191,147,255);
+    border: 3px solid rgba(243,57,8,255);
+    cursor: crosshair;
+    display: none;
+}
+
+.snake-start-btn:hover{
+    animation: btnBouncePhone 500ms 2 alternate;
+}
+
+.snake-start-btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+@keyframes btnBounce{
+    from{background: rgba(243,57,8,255);
+        border: 3px solid rgba(222,191,147,255);}
+    to{background: rgba(222,191,147,255);
+        border: 3px solid rgba(243,57,8,255);
+        transform: scale(1.05);}
+}
+
+@keyframes btnBouncePhone{
+    from{background: rgba(222,191,147,255);
+        border: 3px solid rgba(243,57,8,255);}
+    to{background:rgba(243,57,8,255);
+        border: 3px solid rgba(222,191,147,255);
+        transform: scale(1.05);}
+}
+
+.snake-aside form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.snake-snake{
+    background-color: blue;
+    border-radius: 25%;
+}
+
+.snake-apple{
+    /*background-color: violet;*/
+    background: url(./Media/apple.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.snake-bomb{
+    /*background-color: black;*/
+    background: url(./Media/bomb.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.touchArrowKeys{
+    background: none;
+    border: none;
+    display: none;
+    justify-self: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: auto;
+    align-self: flex-end;
+}
+
+.arrowKey{
+    width: 80px;
+    aspect-ratio: 1;
+    box-shadow: 0.5px 0.5px 5px black;
+    cursor: crosshair;
+}
+
+.phone-score{
+    grid-area: 1 / 3 / 1 / 3;
+    display: block;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    background: rgba(222,191,147,255);
+    border: 3px solid rgba(243,57,8,255);
+    border-radius: 10px;
+    align-self: center;
+    margin-left: auto;
+}
+
+.arrowKey.W{
+    grid-area: 1 / 2 / 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.arrowKey.A{
+    grid-area: 2 / 1 / 2 / 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowKey.S{
+    grid-area: 2 / 2 / 2 / 2;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.arrowKey.D{
+    grid-area: 2 / 3 / 2 / 3;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.arrowKey .upT{
+  width: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 0; 
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid rgb(185, 179, 179);
+}
+
+.arrowKey .downT{
+  height: 0; 
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid rgb(185, 179, 179);
+}
+
+.arrowKey .leftT{
+  height: 0; 
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent; 
+  border-right: 40px solid rgb(185, 179, 179); 
+}
+
+.arrowKey .rightT{
+  height: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0; 
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid rgb(185, 179, 179);
+}
+
+.middleBtn{
+    z-index: 800;
+    height: 60px;
+    aspect-ratio: 1;
+    /* background-color: rgb(230, 221, 221); */
+    background: radial-gradient(rgb(241, 236, 236), rgb(185, 179, 179));
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.touchArrowKeysPhone{
+    display: none;
+    background: none;
+    border: none;
+    margin-bottom: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: auto;
+}
+
+.fa-arrow-right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
+.fa-arrow-left{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+@media (max-width: 890px){
+    .snake-container{
+       background-image: url(./Media/snakeBackgroundPhone.jpg);
+       height: auto;
+       width: 100%;
+    }
+
+    .snake-introduction h1{
+        font-size: 32px;
+    }
+
+    .snake-introduction .settings-btn{
+        display: block;
+    }
+
+    .snake-main{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0.1rem !important;
+        padding-top: none;
+    }
+
+    .snake-grid{
+        max-width: 100% !important;
+        min-height: 50vh;
+    }
+
+    .snake-aside{
+        width: 100% !important;
+        text-align: center;
+        padding-top: 0px !important;
+        justify-content: center;
+        grid-template-rows: auto !important;
+    }
+
+    .game-mode-form{
+        order: 3 !important;
+    }
+
+    .game-mode-desc{
+        order: 4 !important;
+    }
+
+    .touchArrowKeys{
+        display: grid !important;
+        order: 2 !important;
+    }
+
+    .tsbutton{
+        display: none !important;
+        justify-self: flex-start;
+    }
+
+    .snake-score{
+        display: none !important;
+    }
+
+    .start-btn{
+        order: 1 !important;
+    }
+    .fa-arrow-right{
+        display: block;
+    }
+    .fa-arrow-left{
+        display: block;
+    }
+    .cwcList, .hsList, .nbList, .osList{
+        display: none;
+    } 
+    .high-score-section{
+        justify-content: center;
+    }
+}
